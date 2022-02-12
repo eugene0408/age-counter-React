@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/age-couter-React/static/css/main.d70f233f.css",
-    "main.js": "/age-couter-React/static/js/main.2e99ae9a.js",
+    "main.js": "/age-couter-React/static/js/main.32ffc224.js",
     "static/js/787.5f9232d0.chunk.js": "/age-couter-React/static/js/787.5f9232d0.chunk.js",
     "static/media/RobotoCondensed-Bold.woff": "/age-couter-React/static/media/RobotoCondensed-Bold.14a7047141f97b966d40.woff",
     "static/media/RobotoCondensed-Regular.woff": "/age-couter-React/static/media/RobotoCondensed-Regular.25787041ddfe8df69d5d.woff",
@@ -14,11 +14,11 @@
     "static/media/moon.svg": "/age-couter-React/static/media/moon.d737d7365e6809abf5a69f8bb2dde7a8.svg",
     "static/media/ukr.svg": "/age-couter-React/static/media/ukr.157243d7a0f5bd109ce340ebe4a0130f.svg",
     "main.d70f233f.css.map": "/age-couter-React/static/css/main.d70f233f.css.map",
-    "main.2e99ae9a.js.map": "/age-couter-React/static/js/main.2e99ae9a.js.map",
+    "main.32ffc224.js.map": "/age-couter-React/static/js/main.32ffc224.js.map",
     "787.5f9232d0.chunk.js.map": "/age-couter-React/static/js/787.5f9232d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d70f233f.css",
-    "static/js/main.2e99ae9a.js"
+    "static/js/main.32ffc224.js"
   ]
 }
