@@ -14,7 +14,7 @@
 }
 
 .input-error{
-  background: var(--light-red)
+  background: var(--light-red) !important
 }
 
 h2{
@@ -157,6 +157,11 @@ input[type='number']{
   margin-top: 2em;
 }
 
+.time-header .optional{
+  opacity: 0.6;
+  font-size: 14px;
+}
+
 .time-form{
   margin-top: .5em;
   display: flex;
@@ -188,6 +193,7 @@ input[type='number']{
   align-items: center;
   height: 100%;
   font-size: 24px;
+  animation: pulse 1.5s linear infinite;
 }
 
 .time-colon span{
@@ -205,26 +211,52 @@ input[type='number']{
 }
 
 .button{
-  width: 240px;
-  height: 50px;
+  width: var(--button-size);
+  height: var(--button-size);
   border: none;
-  border-radius: 10px;
+  border-radius: 100%;
   color: var(--text-col);
   background: var(--accent);
-  font-size: var(--header-fz);
-  text-transform: uppercase;
   cursor: pointer;
   font-family: 'RobotoCondensed', serif;
 }
 
-.button:hover{
-  background: var(--accent2);
-  color: #fff;
+.arrow{
+  height: 30%;
+  width: 30%;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-line{
+  height: 1px;
+  width: 75%;
+  background: #000;
+  animation: arrow-line 1.5s linear infinite;
+  
+}
+
+@keyframes arrow-line {
+  from{
+    transform: rotate(-45deg) translateX(-50%);
+  }
+  50%{
+    transform: rotate(-45deg) translateX(0);
+  }
+  to{
+    transform: rotate(-45deg) translateX(-50%);
+  }
+
 }
 
 .start-button{
   margin-top: 5em;
 }
+
 
 .Result {
   width: 320px;
@@ -245,6 +277,14 @@ input[type='number']{
 
 .Result label{
   margin-top: .2em;
+}
+
+.Result span{
+  color: var(--text-col);
+}
+
+.Result .yellow{
+  color: var(--accent);
 }
 
 .bday-wrapper{
@@ -286,10 +326,44 @@ input[type='number']{
 
 
 .return-button{
+  transform: rotateZ(180deg);
   margin-top: 1em;
 }
 
+.loading{
+  background-color: var(--dark);
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+}
 
+.loading-circle{
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  border-top: 4px solid var(--accent);
+  animation: loading 1s linear infinite;
+}
 
+@keyframes loading {
+  to{
+    transform: rotate(360deg);
+  }
+}
 
+@keyframes pulse {
+  from{
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50%{
+    opacity: 1;
+    transform: scale(1);
+  }
+  to{
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
 

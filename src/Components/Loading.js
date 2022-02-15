@@ -1,6 +1,10 @@
 const Loading = ()=> {
     return(
-        <h2>Loading...</h2>
+        <div className="loading flex-col-wrapper">
+            <div className="loading-circle">
+                
+            </div>
+        </div>
     );
 };
 

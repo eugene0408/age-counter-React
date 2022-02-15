@@ -1,5 +1,7 @@
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import CountUp from 'react-countup';
+
 
 
 const Result = ({inputDay,  
@@ -142,6 +144,8 @@ const Result = ({inputDay,
 
 
 
+
+
     return(
         <div className="Result flex-col-wrapper">
 
@@ -151,18 +155,15 @@ const Result = ({inputDay,
             <div className="date-form">
 
 
-                <DateOut valClass = 'date-input'
-                         label={t('out.years')} 
+                <AgeOut label={t('out.years')} 
                          value={fullYears}
                          />
 
-                <DateOut valClass = 'date-input'
-                         label={t('out.months')}
+                <AgeOut label={t('out.months')}
                           value={outMonths}
                           />
 
-                <DateOut valClass = 'date-input'
-                         label={t('out.days')}
+                <AgeOut label={t('out.days')}
                          value={outDays}
                          />
 
@@ -172,18 +173,18 @@ const Result = ({inputDay,
 
             <div className="time-form">
    
-                <DateOut valClass = 'time-input'
-                         label={t('out.hours')} 
-                         value={outHours < 10 ? `0${outHours}` : outHours} 
+                <OutTime label={t('out.hours')} 
+                        //  value={outHours < 10 ? `0${outHours}` : outHours} 
+                        value={outHours}
                          />
 
                 <div className="time-colon">
-                    <span>:</span>
+                    <span className="yellow">:</span>
                 </div>
 
-                <DateOut valClass = 'time-input'
-                         label={t('out.minutes')} 
-                         value={outMinutes < 10 ? `0${outMinutes}` : outMinutes} 
+                <OutTime label={t('out.minutes')} 
+                        //  value={outMinutes < 10 ? `0${outMinutes}` : outMinutes} 
+                        value={outMinutes}
                          /> 
 
             </div>
@@ -219,10 +220,12 @@ const Result = ({inputDay,
 
 
 
-            <button className="button return-button"
-                    onClick={ (e)=> {setDisplayed('input')}}
-                    >
-                    {t('out.button')}
+            <button className="button return-button flex-col-wrapper"
+                             onClick={ (e)=> {setDisplayed('input')} }
+                            >
+                            <div className="arrow">
+                                <div className="arrow-line"></div>
+                            </div>
             </button>
         
         
@@ -234,12 +237,12 @@ const Result = ({inputDay,
 
 
 
-const DateOut = ({valClass, label, value}) => {
+const AgeOut = ({label, value}) => {
     return(
         <div className="flex-col-wrapper">
 
-            <div className={`${valClass} flex-col-wrapper`}>
-                {value}
+            <div className={'date-input flex-col-wrapper'}>
+                <CountUp end={value} duration={1 + value/100}/>
             </div>
 
             <label>{label}</label>
@@ -248,7 +251,40 @@ const DateOut = ({valClass, label, value}) => {
     )
 };
 
+const OutTime = ({label, value})=> {
+    return(
+        <div className="flex-col-wrapper">
+
+            <div className={'time-input flex-col-wrapper'}>
+                <CountUp end={value} duration={1.5} delay={0}>
+                    {({countUpRef})=>{
+                        //add zero if only one digit
+                        if(Number(value) < 10){ 
+                            return(
+                                <div>
+                                    0<span ref={countUpRef}></span>
+                                </div>
+                            )
+                        }
+
+                        return(
+                            <div>
+                                <span ref={countUpRef}></span>
+                            </div>
+                        )
+                        
+                    }}
+                </CountUp>
+            </div>
+
+            <label>{label}</label>
+
+        </div>
+    )
+}
+
 const NextBday = ({label, value})=> {
+
     return(
         <div className="bday-wrapper flex-row-wrapper">
 
@@ -259,7 +295,7 @@ const NextBday = ({label, value})=> {
             </div>
 
             <div className="date-input flex-col-wrapper">
-                {value}
+                <CountUp end={value} duration={1.4}/>
             </div>
 
 
@@ -277,7 +313,13 @@ const HappyBirthday = ({label, age})=>{
                 </h3> 
             </div>
             <div className="flex-col-wrapper">
-                <span className="yellow">{age}</span>
+
+                <CountUp end={age} duration={1.5} delay={0}> 
+                    {({ countUpRef }) => (
+                        <span className="yellow" ref={countUpRef} />
+                      )}
+                </CountUp>
+
             </div>
         </div>
     )
@@ -288,7 +330,7 @@ const TimePassed = ({label, value})=> {
     return(
         <div className="time-pass flex-row-wrapper">
             <div className="date-input">
-                {value}
+                <CountUp end={value} duration={1.7} />
             </div>
 
             <h3>

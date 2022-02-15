@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { useTranslation } from 'react-i18next';
+
 
 // Icons
 import sunIcon from './img/sun.svg';
@@ -13,8 +14,7 @@ import InputForm from './Components/InputForm';
 import './Fonts.css'
 import './App.css';
 import Result from './Components/Result';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+
 
 
 function App() {

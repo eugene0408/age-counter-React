@@ -1,6 +1,7 @@
 :root {
   --background: #f6f6f6;
   --headers-col: #000;
+  --dark: #222831;
   --text-col: #000;
   --label-col: #000;
   --accent: #EBE326;
@@ -9,6 +10,7 @@
   --label-fz: 18px;
   --input-fz: 20px;
   --header-fz: 24px;
+  --button-size: 70px;
 
 }
 

@@ -2,10 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import Select from "react-select";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-
-
 
 const InputForm = ({inputDay, 
                     setInputDay, 
@@ -35,6 +31,7 @@ const InputForm = ({inputDay,
 
     // States
     const [inputDayClassName, setInputDayClassName] = useState("date-input");
+    const [inputYearClassName, setInputYearClassName] = useState("date-input");
     const [maxDays, setMaxDays] = useState(31);
 
 
@@ -207,11 +204,15 @@ const InputForm = ({inputDay,
         let usrDate = new Date(`${inputMonth},${inputDay},${inputYear},${inputHour}:${inputMinute}`)
         setInputDate(usrDate);
 
+        
         // Check the date is right and display result
         if(checkMaxDays() && (curDate - usrDate) >= 0){
             setDisplayed('result')
         }
         
+        if(curDate < usrDate){
+            setInputYearClassName("date-input input-error")
+        }
     }
 
     
@@ -229,7 +230,7 @@ const InputForm = ({inputDay,
 
                         <label>{t('form.day')}</label>
 
-                        <input className={inputDayClassName}
+                        <input className= {inputDayClassName}
                                 type="number" 
                                 name="day" 
                                 value = {inputDay}
@@ -260,11 +261,13 @@ const InputForm = ({inputDay,
 
                         <label> {t('form.year')} </label>
 
-                        <input className="date-input"
+                        <input className={inputYearClassName}
                                 type="number" 
                                 name="year" 
                                 value={inputYear}
-                                onChange={(e) => setInputYear(e.target.value)}
+                                onChange={(e) => {setInputYear(e.target.value)
+                                                setInputYearClassName("date-input")}
+                                            }
                                 onFocus={clearValue}
                                 onBlur={inputDateHandler(1900, curYear, saveYear)}
                                 />
@@ -276,7 +279,7 @@ const InputForm = ({inputDay,
                         <span className="yellow">&</span> 
                         {t('form.time')}
                     </h2>
-                    <span>({t('form.optional')})</span>
+                    <span className="optional">({t('form.optional')})</span>
                 </div>
                 
                 <div className="time-form">
@@ -315,12 +318,12 @@ const InputForm = ({inputDay,
 
 
                        
-                    <button className="button start-button"
+                    <button className="button start-button flex-col-wrapper"
                             onClick={startButtonHandler}
                             >
-    
-                            {t('form.button')}
-
+                            <div className="arrow">
+                                <div className="arrow-line"></div>
+                            </div>
                     </button>
 
 
