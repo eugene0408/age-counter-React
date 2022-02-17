@@ -9,7 +9,6 @@
     Light/Dark theme.
 </pre>
 
-#Live Website:
-<pre>
+Live Website: 
 https://eugene0408.github.io/age-couter-React/
-</pre>
+
