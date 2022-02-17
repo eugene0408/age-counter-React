@@ -17,12 +17,26 @@
   background: var(--light-red) !important
 }
 
+h1{
+  font-size: 36px;
+  color: var(--headers-col);
+}
+
 h2{
   color: var(--headers-col);
   font-size: var(--header-fz);
   text-transform: uppercase;
   text-align: center;
 }
+
+h3{
+  color: var(--headers-col);
+  font-size: 20px;
+  margin-top: 1.5em;
+  margin-bottom: 10px;
+}
+
+
 
 span{
   color: var(--headers-col);
@@ -224,8 +238,8 @@ input[type='number']{
 .arrow{
   height: 30%;
   width: 30%;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
+  border-top: 1px solid var(--arrow-col);
+  border-right: 1px solid var(--arrow-col);
   transform: rotate(45deg);
   display: flex;
   justify-content: center;
@@ -235,7 +249,7 @@ input[type='number']{
 .arrow-line{
   height: 1px;
   width: 75%;
-  background: #000;
+  background: var(--arrow-col);
   animation: arrow-line 1.5s linear infinite;
   
 }
@@ -257,6 +271,22 @@ input[type='number']{
   margin-top: 5em;
 }
 
+
+
+.about-button{
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  border: 1px solid var(--headers-col);
+  color: var(--headers-col);
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  opacity: 0.5;
+}
 
 .Result {
   width: 320px;
@@ -327,7 +357,7 @@ input[type='number']{
 
 .return-button{
   transform: rotateZ(180deg);
-  margin-top: 1em;
+  margin-top: 3em;
 }
 
 .loading{
@@ -367,3 +397,17 @@ input[type='number']{
   }
 }
 
+
+.About .button{
+  margin-top: 15vh;
+}
+
+.About h1{
+  margin-bottom: 10vh;
+}
+
+.copyright{
+  color: var(--headers-col);
+  position: absolute;
+  bottom: 25px;
+}

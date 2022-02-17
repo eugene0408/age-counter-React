@@ -1,6 +1,7 @@
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import CountUp from 'react-countup';
+import ArrowButton from "./ArrowButton";
 
 
 
@@ -174,7 +175,6 @@ const Result = ({inputDay,
             <div className="time-form">
    
                 <OutTime label={t('out.hours')} 
-                        //  value={outHours < 10 ? `0${outHours}` : outHours} 
                         value={outHours}
                          />
 
@@ -183,7 +183,6 @@ const Result = ({inputDay,
                 </div>
 
                 <OutTime label={t('out.minutes')} 
-                        //  value={outMinutes < 10 ? `0${outMinutes}` : outMinutes} 
                         value={outMinutes}
                          /> 
 
@@ -218,16 +217,7 @@ const Result = ({inputDay,
 
             </div>
 
-
-
-            <button className="button return-button flex-col-wrapper"
-                             onClick={ (e)=> {setDisplayed('input')} }
-                            >
-                            <div className="arrow">
-                                <div className="arrow-line"></div>
-                            </div>
-            </button>
-        
+            <ArrowButton className={'return-button'} handler={(e)=> {setDisplayed('input')}} />   
         
         </div>
 

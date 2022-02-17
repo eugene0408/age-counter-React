@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Select from "react-select";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
+import ArrowButton from "./ArrowButton";
 
 const InputForm = ({inputDay, 
                     setInputDay, 
@@ -226,20 +227,15 @@ const InputForm = ({inputDay,
             <form className="input-form flex-col-wrapper">
 
                 <div className="date-form">
-                    <div className = "flex-col-wrapper">
 
-                        <label>{t('form.day')}</label>
-
-                        <input className= {inputDayClassName}
-                                type="number" 
-                                name="day" 
-                                value = {inputDay}
-                                onChange = {(e) => setInputDay(e.target.value)}
-                                onFocus={clearValue}
-                                onBlur={inputDateHandler(1, 31, saveDay)}
-                                />
-
-                    </div>
+                    <DateInput
+                        label={t('form.day')}
+                        className={inputDayClassName}
+                        value={inputDay}
+                        onChange={(e) => setInputDay(e.target.value)}
+                        onFocus={clearValue}
+                        onBlur={inputDateHandler(1, 31, saveDay)}
+                    />
 
 
                     <div className="flex-col-wrapper"> 
@@ -247,32 +243,30 @@ const InputForm = ({inputDay,
                         <label> {t('form.month')} </label>
 
                         <Select 
-                                options = {months}
-                                styles = {selectStyles} 
-                                value={months[inputMonth - 1]}
-                                onChange = {(e) => {setInputMonth(Number(e.value));}
-                                            }
-                                />
+                            options = {months}
+                            styles = {selectStyles} 
+                            value={months[inputMonth - 1]}
+                            onChange = {(e) => {setInputMonth(Number(e.value));}}
+                        />
+
                     </div>
 
 
+                    <DateInput
+                        label={t('form.year')}
+                        className={inputYearClassName}
+                        value={inputYear}
+                        onChange={(e) => {setInputYear(e.target.value)
+                            setInputYearClassName("date-input")}
+                        }
+                        onFocus={clearValue}  
+                        onBlur={inputDateHandler(1900, curYear, saveYear)}                  
 
-                    <div className="flex-col-wrapper">
+                    /> 
 
-                        <label> {t('form.year')} </label>
-
-                        <input className={inputYearClassName}
-                                type="number" 
-                                name="year" 
-                                value={inputYear}
-                                onChange={(e) => {setInputYear(e.target.value)
-                                                setInputYearClassName("date-input")}
-                                            }
-                                onFocus={clearValue}
-                                onBlur={inputDateHandler(1900, curYear, saveYear)}
-                                />
-                    </div>
                 </div>    
+
+
 
                 <div className="time-header">
                     <h2>
@@ -282,49 +276,35 @@ const InputForm = ({inputDay,
                     <span className="optional">({t('form.optional')})</span>
                 </div>
                 
+
                 <div className="time-form">
 
-                    <div className="flex-col-wrapper">
-                        <label> {t('form.hour')} </label>
-
-                        <input type="number"
-                                name="hour" 
-                                className="time-input" 
-                                value={inputHour}
-                                onChange={(e)=>setInputHour(e.target.value)}
-                                onFocus={clearValue}
-                                onBlur={inputTimeHandler(23, saveHour)}
-                                />
-                    </div>
+                    <DateInput 
+                        label={t('form.hour')}
+                        className="time-input"
+                        value={inputHour}
+                        onChange={(e)=>setInputHour(e.target.value)}
+                        onFocus={clearValue}
+                        onBlur={inputTimeHandler(23, saveHour)}
+                    />
 
                     <div className="time-colon">
                         <span>:</span>
                     </div>
 
-                    <div className="flex-col-wrapper">
-                        <label> {t('form.minute')} </label>
-
-                        <input type="number" 
-                                name="minute" 
-                                className="time-input" 
-                                value={inputMinute}
-                                onChange={(e)=>setInputMinute(e.target.value)}
-                                onFocus={clearValue}
-                                onBlur={inputTimeHandler(59, saveMinute)}
-                                />
-                    </div>
+                    <DateInput 
+                        label={t('form.minute')}
+                        className="time-input"
+                        value={inputMinute}
+                        onChange={(e)=>setInputMinute(e.target.value)}
+                        onFocus={clearValue}
+                        onBlur={inputTimeHandler(59, saveMinute)}
+                    />
 
                 </div>
 
 
-                       
-                    <button className="button start-button flex-col-wrapper"
-                            onClick={startButtonHandler}
-                            >
-                            <div className="arrow">
-                                <div className="arrow-line"></div>
-                            </div>
-                    </button>
+                <ArrowButton className={'start-button'} handler={startButtonHandler} />                              
 
 
             </form>
@@ -332,6 +312,31 @@ const InputForm = ({inputDay,
         </>
     )
 }
+
+
+
+
+const DateInput = ({label, className, value, onChange, onFocus, onBlur})=> {
+
+    return(
+        
+        <div className = "flex-col-wrapper">
+
+            <label>{label}</label>
+
+            <input className= {className}
+                    type="number" 
+                    value = {value}
+                    onChange = {onChange}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    />
+
+        </div>
+    )
+  
+}
+
 
 
 export default InputForm;

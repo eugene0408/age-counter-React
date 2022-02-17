@@ -6,14 +6,16 @@ import { useTranslation } from 'react-i18next';
 // Icons
 import sunIcon from './img/sun.svg';
 import moonIcon from './img/moon.svg';
+import infoIcon from './img/info.svg';
 import engIcon from './img/eng.svg';
 import ukrIcon from './img/ukr.svg';
 import rusIcon from './img/rus.svg';
 // Components
 import InputForm from './Components/InputForm';
+import Result from './Components/Result';
+import About from './Components/About';
 import './Fonts.css'
 import './App.css';
-import Result from './Components/Result';
 
 
 
@@ -32,6 +34,7 @@ function App() {
 
   // States
   const [displayed, setDisplayed] = useState('input')  //display input/result
+  const [aboutButton, setAboutButton] = useState(true)
   const [inputDay, setInputDay] = useState();
   const [inputMonth, setInputMonth] = useState();
   const [inputYear, setInputYear] = useState();
@@ -80,6 +83,10 @@ function App() {
 
   setLeapYears()
 
+  const aboutClickHandler = ()=> {
+    setDisplayed('about');
+    setAboutButton(false)
+  }
 
 
   return (
@@ -92,62 +99,81 @@ function App() {
        <LangSelect />
 
 
-        {/* Change theme */}
-        <button className='switch-theme-btn'  onClick={switchTheme}>
-          <img src={theme === 'light' ?  sunIcon : moonIcon} alt="light/dark" />
-        </button>
-
- 
+      {/* Change theme */}
+      <button className='switch-theme-btn'  onClick={switchTheme}>
+        <img src={theme === 'light' ?  sunIcon : moonIcon} alt="light/dark" />
+      </button>
 
 
-        { displayed === 'input' && 
-            <InputForm
+
+      { aboutButton &&
+            <button className="about-button"
+                    onClick={aboutClickHandler}
+            >
+              i
+            </button>
+      }
+
+
+      { displayed === 'input' && 
+          <InputForm
+            inputDay = {inputDay}
+            setInputDay = {setInputDay}
+            inputMonth = {inputMonth}
+            setInputMonth = {setInputMonth}
+            inputYear = {inputYear}
+            setInputYear = {setInputYear}
+            inputHour = {inputHour}
+            setInputHour = {setInputHour}
+            inputMinute = {inputMinute}
+            setInputMinute = {setInputMinute}
+            saveDay = {saveDay}
+            setSaveDay = {setSaveDay}
+            saveMonth = {saveMonth}
+            setSaveMonth = {setSaveMonth}
+            saveYear = {saveYear}
+            setSaveYear = {setSaveYear}
+            saveHour = {saveHour}
+            setSaveHour = {setSaveHour}
+            saveMinute = {saveMinute}
+            setSaveMinute = {setSaveMinute}
+            curDate = {curDate}
+            curYear = {curYear}
+            leapYars = {leapYars}
+            inputDate = {inputDate}
+            setInputDate = {setInputDate}
+            displayed = {displayed}
+            setDisplayed = {setDisplayed}
+  
+          />
+        }
+
+        { displayed === 'result' && 
+            <Result 
               inputDay = {inputDay}
-              setInputDay = {setInputDay}
               inputMonth = {inputMonth}
-              setInputMonth = {setInputMonth}
               inputYear = {inputYear}
-              setInputYear = {setInputYear}
               inputHour = {inputHour}
-              setInputHour = {setInputHour}
               inputMinute = {inputMinute}
-              setInputMinute = {setInputMinute}
-              saveDay = {saveDay}
-              setSaveDay = {setSaveDay}
-              saveMonth = {saveMonth}
-              setSaveMonth = {setSaveMonth}
-              saveYear = {saveYear}
-              setSaveYear = {setSaveYear}
-              saveHour = {saveHour}
-              setSaveHour = {setSaveHour}
-              saveMinute = {saveMinute}
-              setSaveMinute = {setSaveMinute}
               curDate = {curDate}
               curYear = {curYear}
               leapYars = {leapYars}
               inputDate = {inputDate}
-              setInputDate = {setInputDate}
               displayed = {displayed}
               setDisplayed = {setDisplayed}
-    
             />
-          }
+        }
 
-          { displayed === 'result' && 
-              <Result 
-                inputDay = {inputDay}
-                inputMonth = {inputMonth}
-                inputYear = {inputYear}
-                inputHour = {inputHour}
-                inputMinute = {inputMinute}
-                curDate = {curDate}
-                curYear = {curYear}
-                leapYars = {leapYars}
-                inputDate = {inputDate}
-                displayed = {displayed}
-                setDisplayed = {setDisplayed}
-              />
-          }
+        { displayed === 'about' && 
+
+          <About 
+            displayed = {displayed}
+            setDisplayed = {setDisplayed}
+            aboutButton = {aboutButton}
+            setAboutButton = {setAboutButton}
+          />
+      
+        }
 
 
 

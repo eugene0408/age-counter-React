@@ -4,8 +4,8 @@
   --dark: #222831;
   --text-col: #000;
   --label-col: #000;
-  --accent: #EBE326;
-  --accent2: #ff0a78;
+  --arrow-col: #fff;
+  --accent: #1E88E5;
   --light-red: #ef9a9a;
   --label-fz: 18px;
   --input-fz: 20px;
@@ -18,6 +18,8 @@
   --background: #222831;
   --headers-col: #fff;
   --label-col: #fff;
+  --accent: #EBE326;
+  --arrow-col: #000
 
 }
 
@@ -28,4 +30,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a{
+  text-decoration: none;
 }
