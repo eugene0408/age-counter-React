@@ -19,8 +19,8 @@ const About = ({displayed, setDisplayed, aboutButton, setAboutButton})=> {
             </div>
 
             <div className="flex-col-wrapper">
-                <h3>My GitHub:</h3>
-                <a className="yellow" href="https://github.com/eugene0408">https://github.com/eugene0408</a>
+                <h3>My Portfolio Website:</h3>
+                <a className="yellow" href="https://eugenelemak.netlify.app/">https://eugenelemak.netlify.app/</a>
             </div>
 
 

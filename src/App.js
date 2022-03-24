@@ -9,7 +9,7 @@ import moonIcon from './img/moon.svg';
 import infoIcon from './img/info.svg';
 import engIcon from './img/eng.svg';
 import ukrIcon from './img/ukr.svg';
-import rusIcon from './img/rus.svg';
+import czeIcon from './img/czech.svg';
 // Components
 import InputForm from './Components/InputForm';
 import Result from './Components/Result';
@@ -196,18 +196,18 @@ const LangSelect = ()=> {
    const langSwitch = useRef(), 
         engButton = useRef(),
         ukrButton = useRef(), 
-        rusButton = useRef();
+        czeButton = useRef();
  
    const displayCurLangIcon = () => {
      switch (true) {
-       case ["en", "en-US", "en-GB", "en-AU", "en-CA", "en-NZ"].includes(i18n.language):
+       case ["en", "en-US", "en-us", "en-GB", "en-AU", "en-CA", "en-NZ"].includes(i18n.language):
          return {backgroundImage: `url(${engIcon})`}
  
-       case ["uk", "uk-UA"].includes(i18n.language):
+       case ["uk", "uk-UA", "uk-ua", "ru", "ru-RU"].includes(i18n.language):
          return {backgroundImage: `url(${ukrIcon})`}
  
-       case ["ru", "ru-RU"].includes(i18n.language):
-         return {backgroundImage: `url(${rusIcon})`}
+       case ["cs"].includes(i18n.language):
+         return {backgroundImage: `url(${czeIcon})`}
  
      } 
    }
@@ -216,7 +216,7 @@ const LangSelect = ()=> {
       langSwitch.current.classList.toggle('hide');
       langSwitch.current.classList.toggle('show');
 
-      [ukrButton, engButton, rusButton].forEach((el)=> {
+      [ukrButton, engButton, czeButton].forEach((el)=> {
         el.current.classList.toggle('show')
         el.current.classList.toggle('hide')
       })
@@ -260,11 +260,11 @@ const LangSelect = ()=> {
       </button>
 
       <button className = 'language-button hide'
-              style={{backgroundImage: `url(${rusIcon})`}}
-              onClick = { ()=> {changeLanguage('ru');
+              style={{backgroundImage: `url(${czeIcon})`}}
+              onClick = { ()=> {changeLanguage('cs');
                                 langClickHandler();
                         }}
-              ref = {rusButton}
+              ref = {czeButton}
               >
       </button>
 

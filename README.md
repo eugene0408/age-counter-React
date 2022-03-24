@@ -5,7 +5,7 @@
     Days to next birthday.
     Lifetime in days, hours, seconds.
     Checking input date (user can't input Feb 30:).
-    Language changing(Ukrainian, English, Russian).
+    Language changing(Ukrainian, English, Czech).
     Light/Dark theme.
 </pre>
 

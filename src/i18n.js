@@ -25,8 +25,8 @@ i18n
     },
 
     backend: {
-      loadPath: 'https://eugene0408.github.io/age-couter-React/locales/{{lng}}/{{ns}}.json',
-      // loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // loadPath: 'https://age-counter.netlify.app/locales/{{lng}}/{{ns}}.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
   });
 
