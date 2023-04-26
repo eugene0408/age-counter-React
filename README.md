@@ -5,9 +5,9 @@
     <pre>Days to your next birthday.</pre>
     <pre>Lifetime in days, hours, seconds.</pre>
     
-  Choose between three languages(Ukrainian, English, Czech). \n
-  Light/Dark theme. \n
-  Saving data in local storage.
+  Choose between three languages(Ukrainian, English, Czech).  
+  Light/Dark theme.  
+  Saving data in local storage.  
 
 
 Live Website: 
