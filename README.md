@@ -1,12 +1,12 @@
 # Age Counter React
 
 <pre>
-    Calculating how many full years, months, days, hours and minutes person has at the moment.
-    Days to next birthday.
+    Input your birth date and see how many years, months, days, hours & minutes you have lived at the moment.
+    Days to your next birthday.
     Lifetime in days, hours, seconds.
-    Validating inputed date.
-    Language change(Ukrainian, English, Czech).
+    Choose between three languages(Ukrainian, English, Czech).
     Light/Dark theme.
+    Saving data in local storage.
 </pre>
 
 Live Website: 
