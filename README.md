@@ -1,6 +1,6 @@
 # Age Counter React
 
- Input your birth date and see:
+ Input your birth date and you will see:
     <pre>How many years, months, days, hours & minutes you have lived at the moment.  
     Days to your next birthday.  
     Lifetime in days, hours, seconds.</pre>
